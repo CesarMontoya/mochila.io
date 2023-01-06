@@ -1,0 +1,214 @@
+@import '../utilities/variables';
+
+.grades {
+    width: 100%;
+    background-color: var(--color-black-dark);
+    color: var(--color-white);
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: minmax(min-content, 300px) auto;
+    grid-template-rows: var(--grade-header-height) min-content;
+
+    &--name{
+        grid-column: 1;
+        grid-row: 1;
+        align-self: center;
+
+        box-sizing: border-box;
+        padding: .7rem 1rem;
+
+        & h2 {
+            font-size: 1.3rem
+        }
+    }
+
+    &--activities{
+        grid-column: 2;
+        grid-row: 1 / 3;
+
+        display: flex;
+        flex-direction: row;
+
+
+        &__activity {
+            // Este elemento no puede tener padding para que los hijos se acomoden a las dimenciones precisas de alto y ancho
+            max-width: 100px;
+            box-sizing: border-box;
+            word-wrap: break-word;
+
+            background-color: var(--color-black-ligth);
+
+            display: flex;
+            flex-direction: column;
+
+            &-header {
+                box-sizing: border-box;
+                height: var(--grade-header-height);                
+                padding: var(--grade-row-padding);
+                overflow-wrap: anywhere;
+                align-items: stretch;
+                
+                text-align: center;
+                
+                //align-self: flex-end;
+
+                display: flex;
+                align-items: center;
+
+                .addActivityBtn {
+                    margin: 0.5rem;
+                    cursor: pointer;
+                }
+
+                .grades--addActivity {
+                    width: 100%;
+                    box-sizing: border-box;
+
+                    form {
+                        display: contents;
+
+                        .input-container {
+                            width: 100%;
+                            box-sizing: border-box;
+
+                            input {
+                                width: 90%;
+                            }
+                        }
+
+                        .btn.btn-addStudent {
+                            grid-column: -2;
+                            grid-row: 1 / 2;
+                            align-self: center;
+                            padding: 0.2rem;
+
+                            //height: 80%;
+                        }
+
+                        .btn.btn-cancelStudent {
+                            grid-column: -2;
+                            grid-row: 2 / -1;
+                            align-self: center;
+                            padding: 0.2rem;
+
+                            //height: 80%;
+                        }
+                    }
+                }
+            }
+
+            &-body {
+                box-sizing: border-box;
+
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+
+                &-cell {
+                    padding: var(--grade-row-padding);
+                    height: var(--grade-row-height);
+                    
+
+                    display: flex;
+                    flex-wrap: nowrap;
+                    align-items: center;
+                }
+            }
+
+        }
+    }
+
+    &--students{
+        grid-column: 1;
+        grid-row: 2;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        align-content: center;
+
+        &-row {
+
+                       
+            padding: var(--grade-row-padding);
+            height: var(--grade-row-height);
+            box-sizing: border-box;
+
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            //border-bottom: 1px solid #fff;
+        }
+
+        .addStudentBtn{
+            align-self: center;
+
+            display: flex;
+            align-items: center;  
+            gap: 0.5rem;          
+            height: var(--grade-row-height);
+            cursor: pointer;
+            padding: 0 0.4rem;
+            box-sizing: border-box;
+            border-radius: 4px;
+            transition: all 0.2s ease-in;
+
+            &:hover {
+                background-color: var(--color-main);
+                color: var(--color-black-dark);
+                font-weight: 600;
+            }
+        }
+
+    }
+
+
+
+    &--addStudent {
+        grid-column: 1 / -1;
+        grid-row: 3 / 4;
+
+        padding: var(--grade-row-padding);
+        height: calc(var(--grade-row-height) * 1.8);
+        width: auto;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0.5rem;
+        
+
+        form {
+            display: contents;
+            
+            .input-container {
+                width: 100px;
+                box-sizing: border-box;
+            }
+
+            .btn.btn-addStudent {
+                grid-column: -2;
+                grid-row: 1 / 2;
+                align-self: center;
+                padding: 0.2rem;
+
+                //height: 80%;
+            }
+
+            .btn.btn-cancelStudent {
+                grid-column: -2;
+                grid-row: 2 / -1;
+                align-self: center;
+                padding: 0.2rem;
+
+                //height: 80%;
+            }
+        }
+    }
+}

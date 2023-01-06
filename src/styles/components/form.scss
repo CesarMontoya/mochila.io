@@ -1,0 +1,77 @@
+form {
+
+    input {
+        border-radius: 0;
+        border: 0;
+        border: none;
+        box-sizing: border-box;
+        font-size: 0.9rem;
+        outline: none;
+        padding: 0.2rem .4rem;
+
+        &:focus {
+            border: 0; 
+            outline: none; 
+            box-shadow: none;
+        }
+
+        ::placeholder {
+            color: #ccc; 
+            font-family: var(--font-p); 
+        }
+    }
+
+    // Input border active animated
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+
+    .input-container {
+        padding: 0.5px; 
+        margin: 0 0.3rem; 
+        box-sizing: border-box;
+
+        &.outline.in {
+            background-image: linear-gradient(to right, var(--color-main), var(--color-main));
+            background-size:  100% 2px;
+            background-position:  0 100%; 
+            background-repeat: no-repeat;
+
+            animation-name: animate-in;
+            animation-duration: 1.2s;
+            animation-timing-function: ease-in-out;
+            
+        }
+
+        &.outline.out {
+            background-image: linear-gradient(to left, var(--color-main), var(--color-main));
+            background-size:  0% 2px;
+            background-position:  0% 100%; 
+            background-repeat: no-repeat;
+
+            animation-name: animate-out;
+            animation-duration: 1.2s;
+            animation-timing-function: ease-out;
+        }
+    }
+
+    @keyframes animate-in {
+        0% { background-size:  0% 2px ; }
+        100% { background-size:  100% 2px ; }
+    }
+
+    @keyframes animate-out {
+        0% { background-size: 100% 2px ; }
+        100% { background-size: 0% 2px ; }
+    }
+
+}

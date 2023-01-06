@@ -1,0 +1,23 @@
+.btn {
+    border-radius: 6px;
+    cursor: pointer;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    &.btn-main{
+        color: var(--color-black-dark);
+        background-color: var(--color-main);
+    }
+
+    &.btn-danger {
+        color: var(--color-black-dark);
+        background-color: var(--color-main);
+    }
+    
+
+    &:hover {
+        background-color: var(--color-main-dark);
+        transition: background-color 0.4s ease;
+    }
+}
